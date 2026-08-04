@@ -484,27 +484,52 @@ SCROLL REVEAL
 
 const revealSections = document.querySelectorAll(".reveal");
 
-const revealObserver = new IntersectionObserver((entries)=>{
+const revealObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+            observer.unobserve(entry.target);
+        }
+    });
+}, {
+    threshold: 0,
+    rootMargin: "0px 0px -100px 0px"
+});
 
-    entries.forEach(entry=>{
+revealSections.forEach(section => {
+    revealObserver.observe(section);
+});
+
+/*=========================================================
+DISCOVER CARD REVEAL
+=========================================================*/
+
+const discoverCards = document.querySelectorAll(".discover-card");
+
+const discoverObserver = new IntersectionObserver((entries, observer) => {
+
+    entries.forEach(entry => {
 
         if(entry.isIntersecting){
 
             entry.target.classList.add("show");
 
-            revealObserver.unobserve(entry.target);
+            observer.unobserve(entry.target);
 
         }
 
     });
 
 },{
-    threshold:0.15
+    threshold:0.15,
+    rootMargin:"0px 0px -80px 0px"
 });
 
-revealSections.forEach(section=>{
+discoverCards.forEach((card,index)=>{
 
-    revealObserver.observe(section);
+    card.style.transitionDelay = `${(index % 3) * 120}ms`;
+
+    discoverObserver.observe(card);
 
 });
 
