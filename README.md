@@ -152,6 +152,8 @@ Visit **Writer's Inn** someday. ☕
 
 ## ©
 
-© 2025 Writer's Inn Heritage Homestay. All Rights Reserved.
+© 2026 Writer's Inn Heritage Homestay. All Rights Reserved.
 
 The content, images and branding belong to Writer's Inn Heritage Homestay.
+
+@KasinathSivakumar
